@@ -19,6 +19,11 @@ else:
     noise_level = ["-m", "noise_scale", "--noise_level", str(noise_level)]
 args = ["waifu2x-converter-cpp", "-j", "2", *noise_level, "-o", outfile, "-i", infile]
 print(" ".join(args))
-subprocess.call(args, stdout=null)
+try:
+    subprocess.check_call(args, stdout=null)
+except:
+    print("Failed. Check your waifu2x installation")
+    null.close()
+    sys.exit(1)
 null.close()
 print("Written to " + outfile)
