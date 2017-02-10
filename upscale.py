@@ -5,7 +5,7 @@ null = open(os.devnull, "w")
 infile = sys.argv[1]
 outfile = ".".join(sys.argv[1].split(".")[:-1]) + "-waifu2x.png"
 noise_level = False
-if len(sys.argv) == 2:
+if len(sys.argv) == 3:
     if sys.argv[2] in ["0", "1", "2"]:
         print("Assuming you don't want to write to a file named " + sys.argv[2])
         noise_level = int(sys.argv[2])
